@@ -29,10 +29,10 @@ const DataEntry: React.FC = () => {
     return (
       <div className="text-center py-12">
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          User Profile Required
+          Требуется профиль пользователя
         </h2>
         <p className="text-gray-600 mb-6">
-          Please complete your profile before adding measurements.
+          Пожалуйста, заполните свой профиль перед добавлением измерений.
         </p>
       </div>
     );
@@ -61,24 +61,24 @@ const DataEntry: React.FC = () => {
     
     // Required fields
     if (!formData.weight || formData.weight <= 0) {
-      newErrors.weight = 'Weight is required and must be greater than 0';
+      newErrors.weight = 'Требуется указать вес больше 0';
     }
     
     if (!formData.bodyFatPercentage || formData.bodyFatPercentage < 0) {
-      newErrors.bodyFatPercentage = 'Body fat percentage is required and must be non-negative';
+      newErrors.bodyFatPercentage = 'Требуется указать процент жира (неотрицательное число)';
     }
     
     if (!formData.skeletalMuscleMass || formData.skeletalMuscleMass <= 0) {
-      newErrors.skeletalMuscleMass = 'Skeletal muscle mass is required and must be greater than 0';
+      newErrors.skeletalMuscleMass = 'Требуется указать мышечную массу больше 0';
     }
     
     // Range validations
     if (formData.bodyFatPercentage && (formData.bodyFatPercentage < 0 || formData.bodyFatPercentage > 100)) {
-      newErrors.bodyFatPercentage = 'Body fat percentage must be between 0 and 100';
+      newErrors.bodyFatPercentage = 'Процент жира должен быть от 0 до 100';
     }
     
     if (formData.waterPercentage && (formData.waterPercentage < 0 || formData.waterPercentage > 100)) {
-      newErrors.waterPercentage = 'Water percentage must be between 0 and 100';
+      newErrors.waterPercentage = 'Процент воды должен быть от 0 до 100';
     }
     
     setErrors(newErrors);
@@ -128,7 +128,7 @@ const DataEntry: React.FC = () => {
   return (
     <div className="animate-slide-up">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">New Measurement</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Новое измерение</h1>
       </div>
       
       <div className="bg-white rounded-lg shadow-card p-6">
@@ -137,7 +137,7 @@ const DataEntry: React.FC = () => {
             {/* Weight */}
             <div className="mb-4">
               <label htmlFor="weight" className="label">
-                Weight (kg) *
+                Вес (кг) *
               </label>
               <input
                 type="number"
@@ -155,7 +155,7 @@ const DataEntry: React.FC = () => {
             {/* Body Fat Percentage */}
             <div className="mb-4">
               <label htmlFor="bodyFatPercentage" className="label">
-                Body Fat Percentage (%) *
+                Процент жира (%) *
               </label>
               <input
                 type="number"
@@ -175,7 +175,7 @@ const DataEntry: React.FC = () => {
             {/* Skeletal Muscle Mass */}
             <div className="mb-4">
               <label htmlFor="skeletalMuscleMass" className="label">
-                Skeletal Muscle Mass (kg) *
+                Мышечная масса (кг) *
               </label>
               <input
                 type="number"
@@ -193,7 +193,7 @@ const DataEntry: React.FC = () => {
             {/* Visceral Fat */}
             <div className="mb-4">
               <label htmlFor="visceralFat" className="label">
-                Visceral Fat Level
+                Уровень висцерального жира
               </label>
               <input
                 type="number"
@@ -211,7 +211,7 @@ const DataEntry: React.FC = () => {
             {/* Water Percentage */}
             <div className="mb-4">
               <label htmlFor="waterPercentage" className="label">
-                Body Water Percentage (%)
+                Процент воды в организме (%)
               </label>
               <input
                 type="number"
@@ -230,7 +230,7 @@ const DataEntry: React.FC = () => {
             {/* Basal Metabolic Rate */}
             <div className="mb-4">
               <label htmlFor="basalMetabolicRate" className="label">
-                Basal Metabolic Rate (kcal)
+                Базовый обмен веществ (ккал)
               </label>
               <input
                 type="number"
@@ -246,7 +246,7 @@ const DataEntry: React.FC = () => {
             {/* Metabolic Age */}
             <div className="mb-4">
               <label htmlFor="metabolicAge" className="label">
-                Metabolic Age (years)
+                Метаболический возраст (лет)
               </label>
               <input
                 type="number"
@@ -263,7 +263,7 @@ const DataEntry: React.FC = () => {
 
           {formSubmitted && Object.keys(errors).length > 0 && (
             <div className="mb-6 p-4 bg-error-50 border border-error-200 rounded-md">
-              <p className="text-error-700 font-medium">Please correct the errors above before submitting.</p>
+              <p className="text-error-700 font-medium">Пожалуйста, исправьте ошибки перед отправкой.</p>
             </div>
           )}
 
@@ -274,14 +274,14 @@ const DataEntry: React.FC = () => {
               className="btn-outline flex items-center"
             >
               <X className="mr-2 h-5 w-5" />
-              Cancel
+              Отмена
             </button>
             <button
               type="submit"
               className="btn-primary flex items-center"
             >
               <Save className="mr-2 h-5 w-5" />
-              Save Measurement
+              Сохранить измерение
             </button>
           </div>
         </form>
@@ -289,17 +289,17 @@ const DataEntry: React.FC = () => {
 
       <div className="mt-8 bg-blue-50 rounded-lg p-6 border border-blue-100">
         <h3 className="text-lg font-medium text-blue-800 mb-2">
-          How to Use InBody Measurements
+          Как использовать измерения InBody
         </h3>
         <p className="text-blue-700 mb-4">
-          Enter the values from your InBody scan report in the form above. Required fields are marked with an asterisk (*).
+          Введите значения из отчета вашего сканирования InBody в форму выше. Обязательные поля отмечены звездочкой (*).
         </p>
         <ul className="list-disc pl-5 text-blue-700 space-y-2">
-          <li>Weight - Your total body weight in kilograms</li>
-          <li>Body Fat Percentage - The percentage of your body weight that is fat</li>
-          <li>Skeletal Muscle Mass - The weight of your skeletal muscles in kilograms</li>
-          <li>Visceral Fat - A rating of the fat surrounding your internal organs</li>
-          <li>Body Water Percentage - The percentage of your weight that is water</li>
+          <li>Вес - Ваш общий вес тела в килограммах</li>
+          <li>Процент жира - Процент вашего веса, который составляет жир</li>
+          <li>Мышечная масса - Вес ваших скелетных мышц в килограммах</li>
+          <li>Висцеральный жир - Оценка жира, окружающего ваши внутренние органы</li>
+          <li>Процент воды - Процент вашего веса, который составляет вода</li>
         </ul>
       </div>
     </div>

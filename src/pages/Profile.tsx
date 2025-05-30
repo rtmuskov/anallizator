@@ -53,22 +53,22 @@ const Profile: React.FC = () => {
     
     // Name validation
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'Требуется указать имя';
     }
     
     // Age validation
     if (!formData.age || formData.age <= 0) {
-      newErrors.age = 'Age must be greater than 0';
+      newErrors.age = 'Возраст должен быть больше 0';
     }
     
     // Height validation
     if (!formData.height || formData.height <= 0) {
-      newErrors.height = 'Height must be greater than 0';
+      newErrors.height = 'Рост должен быть больше 0';
     }
     
     // Email validation (optional field)
     if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
+      newErrors.email = 'Неверный формат email';
     }
     
     setErrors(newErrors);
@@ -126,7 +126,7 @@ const Profile: React.FC = () => {
             {/* Name */}
             <div className="mb-4">
               <label htmlFor="name" className="label">
-                Full Name *
+                Полное имя *
               </label>
               <input
                 type="text"
@@ -159,7 +159,7 @@ const Profile: React.FC = () => {
             {/* Age */}
             <div className="mb-4">
               <label htmlFor="age" className="label">
-                Age (years) *
+                Возраст (лет) *
               </label>
               <input
                 type="number"
@@ -177,7 +177,7 @@ const Profile: React.FC = () => {
             {/* Gender */}
             <div className="mb-4">
               <label htmlFor="gender" className="label">
-                Gender *
+                Пол *
               </label>
               <select
                 id="gender"
@@ -187,16 +187,16 @@ const Profile: React.FC = () => {
                 className="input"
                 required
               >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="male">Мужской</option>
+                <option value="female">Женский</option>
+                <option value="other">Другой</option>
               </select>
             </div>
             
             {/* Height */}
             <div className="mb-4">
               <label htmlFor="height" className="label">
-                Height (cm) *
+                Рост (см) *
               </label>
               <input
                 type="number"
@@ -219,7 +219,7 @@ const Profile: React.FC = () => {
               className="btn-primary flex items-center"
             >
               <Save className="mr-2 h-5 w-5" />
-              Save Profile
+              Сохранить профиль
             </button>
           </div>
         </form>
@@ -228,15 +228,15 @@ const Profile: React.FC = () => {
       {/* Health Information */}
       <div className="mt-8 bg-blue-50 rounded-lg p-6 border border-blue-100">
         <h3 className="text-lg font-medium text-blue-800 mb-2">
-          Why Your Profile Details Matter
+          Почему важны данные профиля
         </h3>
         <p className="text-blue-700 mb-4">
-          Accurate profile information helps us provide better analysis and recommendations:
+          Точная информация профиля помогает нам предоставлять лучший анализ и рекомендации:
         </p>
         <ul className="list-disc pl-5 text-blue-700 space-y-2">
-          <li>Height is essential for calculating your BMI and ideal weight range</li>
-          <li>Age and gender affect the healthy ranges for body composition metrics</li>
-          <li>Regular updates to your profile ensure the most accurate health insights</li>
+          <li>Рост необходим для расчета ИМТ и идеального диапазона веса</li>
+          <li>Возраст и пол влияют на здоровые диапазоны показателей состава тела</li>
+          <li>Регулярное обновление профиля обеспечивает наиболее точные данные о здоровье</li>
         </ul>
       </div>
     </div>

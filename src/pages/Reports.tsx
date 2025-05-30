@@ -15,10 +15,10 @@ const Reports: React.FC = () => {
     return (
       <div className="text-center py-12">
         <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          No Data Available
+          Нет доступных данных
         </h2>
         <p className="text-gray-600 mb-6">
-          Please add measurements to view reports.
+          Пожалуйста, добавьте измерения для просмотра отчетов.
         </p>
       </div>
     );
@@ -44,12 +44,12 @@ const Reports: React.FC = () => {
 
   // Available metrics for selection
   const metricOptions = [
-    { value: 'weight', label: 'Weight (kg)', color: 'rgb(59, 130, 246)' },
-    { value: 'bodyFatPercentage', label: 'Body Fat (%)', color: 'rgb(239, 68, 68)' },
-    { value: 'skeletalMuscleMass', label: 'Muscle Mass (kg)', color: 'rgb(34, 197, 94)' },
-    { value: 'bmi', label: 'BMI', color: 'rgb(168, 85, 247)' },
-    { value: 'visceralFat', label: 'Visceral Fat', color: 'rgb(245, 158, 11)' },
-    { value: 'waterPercentage', label: 'Water (%)', color: 'rgb(20, 184, 166)' },
+    { value: 'weight', label: 'Вес (кг)', color: 'rgb(59, 130, 246)' },
+    { value: 'bodyFatPercentage', label: 'Жировая масса (%)', color: 'rgb(239, 68, 68)' },
+    { value: 'skeletalMuscleMass', label: 'Мышечная масса (кг)', color: 'rgb(34, 197, 94)' },
+    { value: 'bmi', label: 'ИМТ', color: 'rgb(168, 85, 247)' },
+    { value: 'visceralFat', label: 'Висцеральный жир', color: 'rgb(245, 158, 11)' },
+    { value: 'waterPercentage', label: 'Вода (%)', color: 'rgb(20, 184, 166)' },
   ];
 
   // Find selected metric details
@@ -59,9 +59,9 @@ const Reports: React.FC = () => {
     <div className="animate-slide-up">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Reports & Analysis</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Отчеты и анализ</h1>
           <p className="text-gray-600 mt-1">
-            View your progress and trends over time
+            Просмотр вашего прогресса и тенденций с течением времени
           </p>
         </div>
       </div>
@@ -70,7 +70,7 @@ const Reports: React.FC = () => {
       <div className="bg-white rounded-lg shadow-card p-6 mb-8">
         <h2 className="text-lg font-medium text-gray-800 mb-4 flex items-center">
           <TrendingUp className="mr-2 h-5 w-5 text-primary-600" />
-          Select Metric to Visualize
+          Выберите показатель для визуализации
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -108,7 +108,7 @@ const Reports: React.FC = () => {
           <div className="bg-white rounded-lg shadow-card p-6">
             <h2 className="text-lg font-medium text-gray-800 mb-4 flex items-center">
               <Calendar className="mr-2 h-5 w-5 text-primary-600" />
-              Measurement History
+              История измерений
             </h2>
             
             <div className="overflow-x-auto">
@@ -116,19 +116,19 @@ const Reports: React.FC = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Date
+                      Дата
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Weight (kg)
+                      Вес (кг)
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Body Fat (%)
+                      Жировая масса (%)
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Muscle Mass (kg)
+                      Мышечная масса (кг)
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      BMI
+                      ИМТ
                     </th>
                   </tr>
                 </thead>
@@ -164,34 +164,34 @@ const Reports: React.FC = () => {
           <div className="bg-white rounded-lg shadow-card p-6">
             <h2 className="text-lg font-medium text-gray-800 mb-4 flex items-center">
               <FileText className="mr-2 h-5 w-5 text-primary-600" />
-              Health Insights
+              Информация о здоровье
             </h2>
             
             <div className="space-y-4">
               <div className="border-l-4 border-primary-500 pl-4 py-2">
-                <h3 className="font-medium text-gray-900">Ideal Weight Range</h3>
+                <h3 className="font-medium text-gray-900">Идеальный диапазон веса</h3>
                 <p className="text-gray-700">
-                  Based on your height ({user.height} cm), your ideal weight range is between {idealWeightRange.min} and {idealWeightRange.max} kg.
+                  На основе вашего роста ({user.height} см), ваш идеальный диапазон веса составляет от {idealWeightRange.min} до {idealWeightRange.max} кг.
                 </p>
               </div>
               
               <div className="border-l-4 border-secondary-500 pl-4 py-2">
-                <h3 className="font-medium text-gray-900">BMI Classification</h3>
+                <h3 className="font-medium text-gray-900">Классификация ИМТ</h3>
                 <p className="text-gray-700">
-                  <span className="block mb-1">BMI Categories:</span>
-                  <span className="block text-sm">Under 18.5: Underweight</span>
-                  <span className="block text-sm">18.5-24.9: Normal weight</span>
-                  <span className="block text-sm">25-29.9: Overweight</span>
-                  <span className="block text-sm">30 and above: Obesity</span>
+                  <span className="block mb-1">Категории ИМТ:</span>
+                  <span className="block text-sm">Менее 18.5: Недостаточный вес</span>
+                  <span className="block text-sm">18.5-24.9: Нормальный вес</span>
+                  <span className="block text-sm">25-29.9: Избыточный вес</span>
+                  <span className="block text-sm">30 и выше: Ожирение</span>
                 </p>
               </div>
               
               <div className="border-l-4 border-accent-500 pl-4 py-2">
-                <h3 className="font-medium text-gray-900">Body Fat Percentage</h3>
+                <h3 className="font-medium text-gray-900">Процент жира</h3>
                 <p className="text-gray-700">
-                  <span className="block mb-1">Healthy ranges:</span>
-                  <span className="block text-sm">Men: 8-19%</span>
-                  <span className="block text-sm">Women: 21-33%</span>
+                  <span className="block mb-1">Здоровые диапазоны:</span>
+                  <span className="block text-sm">Мужчины: 8-19%</span>
+                  <span className="block text-sm">Женщины: 21-33%</span>
                 </p>
               </div>
             </div>
@@ -203,18 +203,18 @@ const Reports: React.FC = () => {
       <div className="bg-primary-50 rounded-lg p-6 border border-primary-100">
         <h3 className="flex items-center text-lg font-medium text-primary-800 mb-3">
           <FileText className="mr-2 h-5 w-5 text-primary-600" />
-          Export Your Data
+          Экспорт данных
         </h3>
         <p className="text-primary-700 mb-4">
-          Download your measurement history or generate detailed health reports.
+          Скачайте историю измерений или создайте подробные отчеты о здоровье.
         </p>
         <div className="flex flex-wrap gap-4">
           <button className="btn-primary flex items-center">
-            Export as CSV
+            Экспорт в CSV
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
           <button className="btn-outline flex items-center">
-            Generate PDF Report
+            Создать PDF отчет
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
         </div>

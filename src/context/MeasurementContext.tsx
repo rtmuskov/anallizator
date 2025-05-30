@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 import { Measurement } from '../types';
-import { mockMeasurements } from '../utils/mockData';
 
 interface MeasurementContextType {
   measurements: Measurement[];
@@ -12,7 +11,16 @@ interface MeasurementContextType {
 const MeasurementContext = createContext<MeasurementContextType | undefined>(undefined);
 
 export const MeasurementProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [measurements, setMeasurements] = useState<Measurement[]>(mockMeasurements);
+  const [measurements, setMeasurements] = useState<Measurement[]>(() => {
+    // Load measurements from localStorage on initial render
+    const savedMeasurements = localStorage.getItem('measurements');
+    return savedMeasurements ? JSON.parse(savedMeasurements) : [];
+  });
+
+  // Save measurements to localStorage whenever they change
+  React.useEffect(() => {
+    localStorage.setItem('measurements', JSON.stringify(measurements));
+  }, [measurements]);
 
   const addMeasurement = (measurement: Measurement) => {
     setMeasurements((prevMeasurements) => [...prevMeasurements, measurement]);
@@ -48,7 +56,7 @@ export const MeasurementProvider: React.FC<{ children: ReactNode }> = ({ childre
 export const useMeasurements = (): MeasurementContextType => {
   const context = useContext(MeasurementContext);
   if (context === undefined) {
-    throw new Error('useMeasurements must be used within a MeasurementProvider');
+    throw new Error('useMeasurements должен использоваться внутри MeasurementProvider');
   }
   return context;
 };
